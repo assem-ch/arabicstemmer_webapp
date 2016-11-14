@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %} Listing Words {% endblock %}
+
+{% block headline %}Listing Words   {% endblock %}
+
+
+{% block content %}
+    <table class="table table-striped table-bordered table-condensed">
+
+        {% for stem in stems %}
+            <tr>
+                <th>{{ stem.text }}.</th>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

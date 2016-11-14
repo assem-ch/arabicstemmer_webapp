@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %} Listing Words {% endblock %}
+
+
+{% block headline %}Listing Words   {% endblock %}
+
+{% block content %}
+    <table id="wordtable" data-page-length='10' class="display table table-striped table-bordered table-condensed">
+
+        <thead>
+        <tr>
+            <th>N</th>
+            <th>Word</th>
+            <th>Stem</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for word in words %}
+            <tr>
+                <td>{{ forloop.counter }} </td>
+                <th>{{ word.text }}</th>
+                <td>{{ word.stem.text }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

@@ -1,0 +1,9 @@
+django==1.8.7
+django-debug-toolbar
+djangorestframework
+django-filter
+django-rest-swagger
+django-data-exports
+arabicstemmer
+markdown
+south
