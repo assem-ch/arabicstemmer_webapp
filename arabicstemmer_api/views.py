@@ -6,8 +6,8 @@ from rest_framework.decorators import api_view, renderer_classes
 from rest_framework_swagger.renderers import OpenAPIRenderer, SwaggerUIRenderer
 
 from arabicstemmer import ArabicStemmer
-from models import Word, Stem, StopWord
-from serializers import WordSerializer, StemSerializer, StopWordSerializer
+from arabicstemmer_api.models import Word, Stem, StopWord
+from arabicstemmer_api.serializers import WordSerializer, StemSerializer, StopWordSerializer
 
 
 @api_view()

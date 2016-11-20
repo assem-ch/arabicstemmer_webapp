@@ -4,6 +4,7 @@ djangorestframework
 django-filter
 django-rest-swagger
 django-data-exports
+django-webpack-loader
 arabicstemmer
 markdown
 south

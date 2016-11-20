@@ -146,3 +146,10 @@ requests/
 /PubCompany/static/
 
 components/
+
+*.pyc
+node_modules/
+assets/bundles/
+assets/js/index.js~
+db.sqlite3
+

@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from models import Word, Stem, StopWord
+from arabicstemmer_api.models import Word, Stem, StopWord
 
 
 class WordSerializer(serializers.HyperlinkedModelSerializer):

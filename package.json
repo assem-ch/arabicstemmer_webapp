@@ -1,0 +1,30 @@
+{
+  "name": "arabicstemmer",
+  "version": "0.0.0",
+  "description": "arabic stemmer library",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/assem-ch/arabicstemmer_webapp.git"
+  },
+  "author": "",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/assem-ch/arabicstemmer_webapp/issues"
+  },
+  "devDependencies": {
+    "babel": "~6.5.2",
+    "webpack-bundle-tracker": "0.0.93",
+    "webpack": "~1.13.3",
+    "react": "~15.4.0",
+    "babel-core": "~6.18.2",
+    "babel-loader": "~6.2.7",
+    "react-dom": "~15.4.0",
+    "babel-preset-react": "~6.16.0",
+    "redux": "~3.6.0",
+    "react-redux": "~4.4.6"
+  }
+}
