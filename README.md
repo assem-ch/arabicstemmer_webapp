@@ -14,7 +14,7 @@ Presentation website for the arabicsremmer  found online at [here](http://www.ar
 * `pip install -r requirements.txt`
 
 # Build :
-* `./node_modules/.bin/webpack --config webpack.config.js`
+* webpack
 
 # Run :
 * `python manage.py runserver`
