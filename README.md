@@ -2,7 +2,7 @@ Arabic Stemmer Library
 =======================================
 Presentation website for the arabicsremmer  found online at [here](http://www.arabicstemmer.com).
 
-<<<<<<< HEAD
+
 How it works ?
 =======================================
 * get the code `git clone git@github.com:LBenzahia/arabicstemmer_webapp.git`
@@ -15,7 +15,7 @@ How it works ?
    * [arabicstemmer 0.2](https://pypi.python.org/pypi/arabicstemmer/0.2).
    
 # Install requirements :
->>>>>>> 145fb97240c1822cf75644abd71adf18211f18b5
+
 * `npm install`
 * `pip install -r requirements.txt`
 
