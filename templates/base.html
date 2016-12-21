@@ -22,79 +22,7 @@
 		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
     <title> {% block title %}Assem's Arabic Stemmer{% endblock %}</title>
-    <script src="/static/lib/snowball.babel.js"></script>
-    <script>
-        var printstem = (function () {
-                    var Stem = (function () {
-                                var lang, testStemmer;
-                                return function (lng, word) {
-                                    if (lng !== lang) {
-                                        lang = lng;
-                                        testStemmer = snowballFactory.newStemmer(lang);
-                                    }
-                                    return testStemmer.stem(word);
-                                }
-                            })();
-                    return function (lng, word) {
-                        list = word.split(" ");
-                        var result = "";
-                        var stats = ""
-                        var cpt = 0;
-                        var stem = "";
-                        var stems = [];
-                        list.forEach(function (entry) {
-                            if (entry) {
-                                cpt++;
-                                stem = Stem(lng, entry);
-                                if (!(stem in stems)) stems[stem] = [entry];
-                                else if (stems[stem].indexOf(entry) == -1) stems[stem].push(entry);
-                            }
-                        });
-                        stats += " <span class='label label-primary'>words: " + cpt + "</span> ";
-                        stats += "<span class='label label-primary'>stems: " + Object.keys(stems).length + "</span> ";
-                        stats += "<span class='label label-primary'>ratio: " + Math.round(list.length * 100 / Object.keys(stems).length) / 100 + "</span> ";
-                        Object.keys(stems).forEach(function (entry) {
-                            result += " <span class='text-success' data-toggle='tooltip'  data-placement='bottom' title='" + stems[entry].join(" | ") + "'>" + entry + "</span> ";
-                        });
-                        document.getElementById("stats").innerHTML = stats;
-                        document.getElementById("sh").style.display = 'block';
-                        document.getElementById("result").innerHTML = result;
-                        $(function () {
-                            $("[data-toggle='tooltip']").tooltip()
-                        });
-                    };
-                })();
 
-
-    </script>
-
-    <script>
-        window.onload = function () {
-            var fileInput = document.getElementById('fileInput');
-            var fileDisplayArea = document.getElementById('result');
-
-            fileInput.addEventListener('change', function (e) {
-                var file = fileInput.files[0];
-                var textType = /text.*/;
-
-                if (file.type.match(textType)) {
-                    var reader = new FileReader();
-
-                    reader.onload = function (e) {
-
-
-                        printstem('arabic', reader.result);
-                        document.getElementById("fileInput").value = "";
-                    }
-
-                    reader.readAsText(file);
-                } else {
-                    fileDisplayArea.innerText = "File not supported!"
-                }
-            });
-        }
-
-    </script>
 </head>
 <body>
 

@@ -1,5 +1,28 @@
-var React = require('react')
-var ReactDOM = require('react-dom')
-var Redux = require('redux')
+import React from "react";
+import ReactDom from "react-dom";
+import AppStem from './components/AppStem'
+import { Provider } from 'react-redux'
 
-const { createStore } = Redux
+import store from './store';
+
+
+
+
+const appStemHTML = document.getElementById("stemApp")
+
+ReactDom.render(
+        <Provider store={store}>
+        <AppStem />
+        </Provider>,
+       appStemHTML
+   )
+
+
+
+
+
+
+
+
+
+

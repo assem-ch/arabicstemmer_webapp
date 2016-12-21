@@ -1,3 +1,4 @@
+import  json
 from django.http import HttpResponse
 from django.shortcuts import render_to_response
 from rest_framework import response, schemas
@@ -75,8 +76,12 @@ def stem(request, word=""):
     word = word.strip()
     stemmer = ArabicStemmer()
     stemmed = stemmer.stemWord(word)
-    response = HttpResponse(
-        "<html><head></head> <body>%s</body></html>" % stemmed,
+    response_data = {}
+    response_data['word'] = word
+    response_data['stemmed'] = stemmed
+
+    response = HttpResponse(json.dumps(response_data), content_type="application/json"
+        #"<html><head></head> <body>%s</body></html>" % stemmed,
         # content_type="text/plain"
     )
     response['charset'] = 'utf-8'
@@ -86,4 +91,29 @@ def stem(request, word=""):
         stem, created = Stem.objects.get_or_create(text=stemmed)
         Word.objects.update_or_create(text=word, stem=stem)
     # response['Content-Encoding'] = 'gzip'
+    return response
+
+def text(request, text=""):
+    text = text.split()
+    stemmer = ArabicStemmer()
+    response_data = []
+    data = {}
+    for word in text:
+        word = word.strip()
+        stemmed = stemmer.stemWord(word)
+        data['word'] = word
+        data['stem'] = stemmed
+        response_data.append(data)
+        data = {}
+        if request.user.is_authenticated():
+            stem, created = Stem.objects.get_or_create(text=stemmed)
+            Word.objects.update_or_create(text=word, stem=stem)
+
+    response = HttpResponse(json.dumps(response_data), content_type="application/json"
+                            # "<html><head></head> <body>%s</body></html>" % stemmed,
+                            # content_type="text/plain"
+                            )
+    response['charset'] = 'utf-8'
+    response['Access-Control-Allow-Origin'] = '*'
+    response['Access-Control-Allow-Methods'] = 'GET'
     return response
