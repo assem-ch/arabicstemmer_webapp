@@ -3,10 +3,6 @@ Arabic Stemmer Library
  Arabicsremmer WebSite   [here](http://www.arabicstemmer.com).
 
 
-How it works ?
-=======================================
-
-=======
 # Requirements :
    * [Django](https://www.djangoproject.com/).
    * [Django Rest Framework](http://www.django-rest-framework.org/).
