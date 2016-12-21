@@ -5,7 +5,7 @@ Presentation website for the arabicsremmer  found online at [here](http://www.ar
 
 How it works ?
 =======================================
-* get the code `git clone git@github.com:LBenzahia/arabicstemmer_webapp.git`
+
 =======
 # Requirements :
    * [Django](https://www.djangoproject.com/).
