@@ -1,6 +1,6 @@
 Arabic Stemmer Library
 =======================================
-Presentation website for the arabicsremmer  found online at [here](http://www.arabicstemmer.com).
+ Arabicsremmer WebSite   [here](http://www.arabicstemmer.com).
 
 
 How it works ?
