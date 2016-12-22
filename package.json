@@ -1,7 +1,7 @@
 {
   "name": "arabicstemmer",
-  "version": "0.0.0",
-  "description": "arabic stemmer library",
+  "version": "0.1.0",
+  "description": "arabic stemmer webapp",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
