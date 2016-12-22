@@ -21,4 +21,6 @@ urlpatterns = [
     url('^api/', schema_view),
     url(r'^list/stopwords/?', 'arabicstemmer_api.views.stopwords'),
     url(r'word/(?P<word>\w{2,15})/?', 'arabicstemmer_api.views.stem'),
+    url(r'text/(?P<text>[\w ]+)/?', 'arabicstemmer_api.views.text'),
+
 ]

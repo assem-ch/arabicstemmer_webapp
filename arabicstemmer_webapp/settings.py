@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     # 'debug_toolbar',
     'rest_framework',
     'rest_framework_swagger',
+    'webpack_loader',
     # 'data_exports'
 
 )
@@ -110,8 +111,15 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "static"),
+    os.path.join(BASE_DIR, "assets"),
 )
+
+WEBPACK_LOADER = {
+    'DEFAULT': {
+        'BUNDLE_DIR_NAME': 'bundles/',
+        'STATS_FILE': os.path.join(BASE_DIR, 'webpack-stats.json'),
+    }
+}
 
 INTERNAL_IPS = ('127.0.0.1',)
 
