@@ -1,6 +1,6 @@
-Arabic Stemmer Library
+Arabic Stemmer Webapp
 =======================================
- Arabicsremmer WebSite   [here](http://www.arabicstemmer.com).
+ Webapp for [Assem's Arabic stemmer](http://www.arabicstemmer.com).
 
 
 # Requirements :
@@ -10,10 +10,10 @@ Arabic Stemmer Library
    * [Redux](https://github.com/reactjs/redux).
    * [arabicstemmer 0.2](https://pypi.python.org/pypi/arabicstemmer/0.2).
    
-# Install requirements :
+# Used technologies :
 
 * `npm install`
-* `pip install -r requirements.txt`
+* `sudo pip install -r requirements.txt`
 
 # Build :
 * `webpack`
