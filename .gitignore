@@ -152,4 +152,5 @@ node_modules/
 assets/bundles/
 assets/js/index.js~
 
+webpack-stats.json
 
