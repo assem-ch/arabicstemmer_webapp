@@ -34,10 +34,11 @@ results
           <div className="well centered">
                  <div>
                    <span className="label label-default">Stats</span>
-                   <Stats
+`                     {' '}
+                     <Stats
                       words={results.map(k => k.length)}
                       stemsNbr={Object.keys(stems).length }
-                      ratio={Math.round(results.map(k => k.length)*100/Object.keys(stems).length)/100}
+                      ratio={(Math.round(Object.keys(stems).length*100.0/results.map(k => k.length))/100.0).toFixed(2)}
                    />
 
                  </div>
