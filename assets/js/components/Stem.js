@@ -6,7 +6,7 @@ stemValue,
 wordValue
 
 }) => (
-  <span className="text-success" data-toggle='tooltip'  data-placement='bottom'  title={wordValue}>
+  <span key={stemValue} className="text-success" data-toggle='tooltip'  data-placement='bottom'  title={wordValue}>
 
     {" "+stemValue+" "}
   </span>
