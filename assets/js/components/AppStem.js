@@ -6,6 +6,7 @@ import StemmerResult from './StemmerResult'
 import { connect } from 'react-redux'
 import {  stemmingText  } from '../actions'
 
+import store from '../store'
 
 @connect((store) => {
    return {
@@ -18,8 +19,9 @@ export default class AppStem extends React.Component {
 
     constructor(porps){
         super(porps);
-        this.state = {value: 'مكتبة لمعالجة الكلمات العربية وتجذيعها'}
-        this.list = " "
+        this.state = {
+             value: 'مكتبة لمعالجة الكلمات العربية وتجذيعها'
+             }
 
         this.handleChange = this.handleChange.bind(this);
         this.ftechStems = this.ftechStems.bind(this);
@@ -32,10 +34,21 @@ export default class AppStem extends React.Component {
      this.list = this.state.value
      this.props.dispatch(stemmingText(this.list));
     }
-    //TODO: handle file.txt
-    fileHandler(event)
-    {
 
+    fileHandler(event){
+
+         var file = event.target.files[0];
+         var textType = /text.*/;
+         if (file.type.match(textType)){
+            var reader = new FileReader();
+            reader.onload = function(e) {
+             var r = e.target.result;
+              store.dispatch(stemmingText(r))
+            }
+            reader.readAsText(file);
+         }else{
+            alert("File not supported!")
+            }
     }
     render(){
 
@@ -45,7 +58,7 @@ export default class AppStem extends React.Component {
              value={this.state.value}
              onchange={this.handleChange}
              fetchingStem={() => this.ftechStems(event)}
-             handleFile={() => this.fileHandler(event)}
+             handleFile={this.fileHandler}
             />
             <StemmerResult
             results={this.props.stemResults}

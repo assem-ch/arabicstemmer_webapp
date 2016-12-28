@@ -11,14 +11,18 @@ const StemForm = ({
 
    <div>
       <input id="query" type="text" value={value} onChange={onchange} />
+       {" "}
       <button className="btn btn-conf btn-success" onClick={fetchingStem}>
            Stem!
-       </button>
-
-       <button className="btn btn-conf btn-info" onClick={handleFile}>
-           File
       </button>
-      <input type="file" id="fileInput" style={{ display: 'none' }}   />
+      {" "}
+       <label>
+             <div className="btn btn-conf btn-info">
+                File
+            </div>
+            <input type="file" id="fileInput" style={{ display: "none"}} multiple   onChange={handleFile}/>
+        </label>
+
    </div>
 )
 export default StemForm
