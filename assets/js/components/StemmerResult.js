@@ -46,11 +46,13 @@ results
                 <br/>
                 <ul id="result">
                           {
-                              Object.keys(stems).map( key =>
+                              Object.keys(stems).map( (entry, index) => (
                               <Stem
-                                 stemValue={key}
-                                 wordValue={stems[key].join(' | ')}
+                                 key={index}
+                                 stemValue={entry}
+                                 wordValue={stems[entry].join(' | ')}
                               />
+                              )
                             )
 
 

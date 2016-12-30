@@ -1,12 +1,10 @@
 import React from 'react';
 
-import StemForm from './StemForm'
-import StemmerResult from './StemmerResult'
+import StemForm from '../components/StemForm'
+import StemmerResult from '../components/StemmerResult'
 
 import { connect } from 'react-redux'
 import {  stemmingText  } from '../actions'
-
-import store from '../store'
 
 @connect((store) => {
    return {
@@ -31,24 +29,29 @@ export default class AppStem extends React.Component {
     this.setState({value: event.target.value});
     }
     ftechStems(event){
-     this.list = this.state.value
-     this.props.dispatch(stemmingText(this.list));
+     var list = this.state.value
+     this.props.dispatch(stemmingText(list));
     }
 
     fileHandler(event){
 
          var file = event.target.files[0];
+//         console.log(file)
          var textType = /text.*/;
-         if (file.type.match(textType)){
+         //TODO: test about size file
+         if (file.type.match(textType) && file.size <= 10000){
             var reader = new FileReader();
-            reader.onload = function(e) {
-             var r = e.target.result;
-              store.dispatch(stemmingText(r))
+            reader.onload = (e) => {
+              this.props.dispatch(stemmingText(e.target.result));
             }
-            reader.readAsText(file);
+           reader.readAsText(file);
          }else{
-            alert("File not supported!")
+            if(file.size > 10000){
+              alert("the size of file > from 10000 bytes")
+            }else{
+              alert("File not supported!")
             }
+         }
     }
     render(){
 
