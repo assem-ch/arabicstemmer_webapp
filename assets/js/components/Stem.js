@@ -1,12 +1,12 @@
 import React from 'react'
 
 const Stem = ({
-
+index,
 stemValue,
 wordValue
 
 }) => (
-  <span key={stemValue} className="text-success" data-toggle='tooltip'  data-placement='bottom'  title={wordValue}>
+  <span key={index} className="text-success" data-toggle='tooltip'  data-placement='bottom'  title={wordValue}>
 
     {" "+stemValue+" "}
   </span>
