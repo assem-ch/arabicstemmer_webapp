@@ -1,9 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux'
 
 import StemForm from '../components/StemForm'
 import StemmerResult from '../components/StemmerResult'
-
-import { connect } from 'react-redux'
 import {  stemmingText  } from '../actions'
 
 @connect((store) => {
