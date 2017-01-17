@@ -1,4 +1,5 @@
 import  json
+from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse
 from django.shortcuts import render_to_response
 from rest_framework import response, schemas
@@ -92,8 +93,11 @@ def stem(request, word=""):
         Word.objects.update_or_create(text=word, stem=stem)
     # response['Content-Encoding'] = 'gzip'
     return response
-
-def text(request, text=""):
+@csrf_exempt
+def text_json(request):
+    body_unicode = request.body.decode('utf-8')
+    body = json.loads(body_unicode)
+    text = body['text']
     text = text.split()
     stemmer = ArabicStemmer()
     response_data = []
@@ -108,12 +112,8 @@ def text(request, text=""):
         if request.user.is_authenticated():
             stem, created = Stem.objects.get_or_create(text=stemmed)
             Word.objects.update_or_create(text=word, stem=stem)
-
-    response = HttpResponse(json.dumps(response_data), content_type="application/json"
-                            # "<html><head></head> <body>%s</body></html>" % stemmed,
-                            # content_type="text/plain"
-                            )
+    response = HttpResponse(json.dumps(response_data), content_type="application/json")
     response['charset'] = 'utf-8'
     response['Access-Control-Allow-Origin'] = '*'
-    response['Access-Control-Allow-Methods'] = 'GET'
+    response['Access-Control-Allow-Methods'] = 'POST'
     return response
